@@ -1,0 +1,4 @@
+Sample screenshots rendered with the unmodified prototype UI.
+The underlying states came from a real isolated Temporal workflow: Maya timed out, Olivia received the next offer, Maya's stale acceptance was rejected, and Olivia accepted.
+Appointment and history display times were rebased to an illustrative 3 pm appointment on October 6; screenshots are explicitly labeled as a sample scenario.
+The 20-second demo window is real; standard offers are up to 15 minutes.

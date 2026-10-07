@@ -1,0 +1,310 @@
+{
+  "workflowId": "juniper-presentation-1791354806586",
+  "origin": 1791354806586,
+  "firstAt": 1791354809754,
+  "secondAt": 1791354829866,
+  "acceptedAt": 1791354830777,
+  "first": {
+    "requests": [
+      {
+        "id": "presentation-0",
+        "clientId": "2025550120",
+        "name": "Maya Chen",
+        "mobile": "2025550120",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354803586,
+        "status": "waiting",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-1",
+        "clientId": "2025550121",
+        "name": "Olivia Brooks",
+        "mobile": "2025550121",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354804586,
+        "status": "waiting",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-2",
+        "clientId": "2025550122",
+        "name": "Nora Patel",
+        "mobile": "2025550122",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354805586,
+        "status": "waiting",
+        "existingAppointment": ""
+      }
+    ],
+    "openings": [
+      {
+        "id": "presentation-opening",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "startsAt": 1791358406586,
+        "durationMinutes": 45,
+        "createdAt": 1791354806586,
+        "offerSeconds": 20,
+        "demo": true,
+        "reservedInSquare": true,
+        "status": "offering",
+        "squareUpdated": false,
+        "offers": [
+          {
+            "id": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "token": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "requestId": "presentation-0",
+            "clientId": "2025550120",
+            "clientName": "Maya Chen",
+            "createdAt": 1791354808394,
+            "expiresAt": 1791354828394,
+            "status": "pending"
+          }
+        ],
+        "history": [
+          {
+            "at": 1791354808394,
+            "message": "Staff confirmed the time is reserved in Square. Outreach started."
+          },
+          {
+            "at": 1791354808394,
+            "message": "Offer sent to Maya Chen. Simulated text is ready."
+          }
+        ]
+      }
+    ]
+  },
+  "second": {
+    "requests": [
+      {
+        "id": "presentation-0",
+        "clientId": "2025550120",
+        "name": "Maya Chen",
+        "mobile": "2025550120",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354803586,
+        "status": "waiting",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-1",
+        "clientId": "2025550121",
+        "name": "Olivia Brooks",
+        "mobile": "2025550121",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354804586,
+        "status": "waiting",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-2",
+        "clientId": "2025550122",
+        "name": "Nora Patel",
+        "mobile": "2025550122",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354805586,
+        "status": "waiting",
+        "existingAppointment": ""
+      }
+    ],
+    "openings": [
+      {
+        "id": "presentation-opening",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "startsAt": 1791358406586,
+        "durationMinutes": 45,
+        "createdAt": 1791354806586,
+        "offerSeconds": 20,
+        "demo": true,
+        "reservedInSquare": true,
+        "status": "offering",
+        "squareUpdated": false,
+        "offers": [
+          {
+            "id": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "token": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "requestId": "presentation-0",
+            "clientId": "2025550120",
+            "clientName": "Maya Chen",
+            "createdAt": 1791354808394,
+            "expiresAt": 1791354828394,
+            "status": "expired",
+            "respondedAt": 1791354828878
+          },
+          {
+            "id": "fb38155d-5534-4167-978d-d436a0f1e61e",
+            "token": "fb38155d-5534-4167-978d-d436a0f1e61e",
+            "requestId": "presentation-1",
+            "clientId": "2025550121",
+            "clientName": "Olivia Brooks",
+            "createdAt": 1791354828878,
+            "expiresAt": 1791354848878,
+            "status": "pending"
+          }
+        ],
+        "history": [
+          {
+            "at": 1791354808394,
+            "message": "Staff confirmed the time is reserved in Square. Outreach started."
+          },
+          {
+            "at": 1791354808394,
+            "message": "Offer sent to Maya Chen. Simulated text is ready."
+          },
+          {
+            "at": 1791354828878,
+            "message": "Maya Chen's offer expired without a response."
+          },
+          {
+            "at": 1791354828878,
+            "message": "Offer sent to Olivia Brooks. Simulated text is ready."
+          }
+        ]
+      }
+    ]
+  },
+  "accepted": {
+    "requests": [
+      {
+        "id": "presentation-0",
+        "clientId": "2025550120",
+        "name": "Maya Chen",
+        "mobile": "2025550120",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354803586,
+        "status": "waiting",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-1",
+        "clientId": "2025550121",
+        "name": "Olivia Brooks",
+        "mobile": "2025550121",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354804586,
+        "status": "fulfilled",
+        "existingAppointment": ""
+      },
+      {
+        "id": "presentation-2",
+        "clientId": "2025550122",
+        "name": "Nora Patel",
+        "mobile": "2025550122",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "durationMinutes": 45,
+        "availableFrom": 1791351206586,
+        "availableUntil": 1791441206586,
+        "joinedAt": 1791354805586,
+        "status": "waiting",
+        "existingAppointment": ""
+      }
+    ],
+    "openings": [
+      {
+        "id": "presentation-opening",
+        "service": "Haircut",
+        "stylist": "Jessica",
+        "startsAt": 1791358406586,
+        "durationMinutes": 45,
+        "createdAt": 1791354806586,
+        "offerSeconds": 20,
+        "demo": true,
+        "reservedInSquare": true,
+        "status": "filled",
+        "squareUpdated": false,
+        "offers": [
+          {
+            "id": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "token": "0e36660d-4759-4c15-a9ff-ac41b025a390",
+            "requestId": "presentation-0",
+            "clientId": "2025550120",
+            "clientName": "Maya Chen",
+            "createdAt": 1791354808394,
+            "expiresAt": 1791354828394,
+            "status": "expired",
+            "respondedAt": 1791354828878
+          },
+          {
+            "id": "fb38155d-5534-4167-978d-d436a0f1e61e",
+            "token": "fb38155d-5534-4167-978d-d436a0f1e61e",
+            "requestId": "presentation-1",
+            "clientId": "2025550121",
+            "clientName": "Olivia Brooks",
+            "createdAt": 1791354828878,
+            "expiresAt": 1791354848878,
+            "status": "accepted",
+            "respondedAt": 1791354829870
+          }
+        ],
+        "history": [
+          {
+            "at": 1791354808394,
+            "message": "Staff confirmed the time is reserved in Square. Outreach started."
+          },
+          {
+            "at": 1791354808394,
+            "message": "Offer sent to Maya Chen. Simulated text is ready."
+          },
+          {
+            "at": 1791354828878,
+            "message": "Maya Chen's offer expired without a response."
+          },
+          {
+            "at": 1791354828878,
+            "message": "Offer sent to Olivia Brooks. Simulated text is ready."
+          },
+          {
+            "at": 1791354829870,
+            "message": "Olivia Brooks accepted. Square update pending."
+          }
+        ]
+      }
+    ]
+  },
+  "decisions": [
+    {
+      "ok": false,
+      "message": "This offer is no longer available. You remain on the waitlist unless staff removed your request."
+    },
+    {
+      "ok": true,
+      "message": "Your appointment is accepted. The salon is updating its calendar.",
+      "id": "presentation-opening"
+    }
+  ]
+}

@@ -57,6 +57,6 @@ for (const child of children) {
     }
   });
 }
-console.log("\nStarter is launching:");
-console.log("  App:         http://localhost:3000");
+console.log("\nJuniper Salon is launching:");
+console.log(`  App:         http://localhost:${process.env.PORT ?? 3000}`);
 console.log("  Temporal UI: http://localhost:8233\n");

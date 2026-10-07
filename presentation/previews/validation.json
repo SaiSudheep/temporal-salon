@@ -1,0 +1,45 @@
+{
+  "pages": 5,
+  "dimensions": [
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "footerTop": 672.5,
+      "contentBottom": 572.578125
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "footerTop": 672.5,
+      "contentBottom": 655
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "footerTop": 672.5,
+      "contentBottom": 656.546875
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "footerTop": 672.5,
+      "contentBottom": 649.046875
+    },
+    {
+      "width": 1280,
+      "height": 720,
+      "scrollWidth": 1280,
+      "scrollHeight": 720,
+      "footerTop": 672.5,
+      "contentBottom": 664.0625
+    }
+  ]
+}

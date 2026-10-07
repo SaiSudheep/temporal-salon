@@ -4,6 +4,7 @@
   "private": true,
   "description": "Student starter for the Temporal post-assessment.",
   "scripts": {
+    "start": "node scripts/start.mjs",
     "dev": "node scripts/dev.mjs",
     "dev:api": "tsx src/api.ts",
     "dev:worker": "tsx src/worker.ts",
