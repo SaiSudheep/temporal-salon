@@ -1,33 +1,373 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Temporal assessment starter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#254c3f" />
+    <title>Juniper Salon · A little room for possibility</title>
     <link rel="stylesheet" href="/styles.css" />
   </head>
   <body>
-    <main>
-      <p class="eyebrow">Temporal assessment starter</p>
-      <h1>Your environment is connected.</h1>
-      <p class="intro">
-        This neutral demonstration starts a Workflow, waits durably for a
-        Signal, and then completes. Replace it with the experience your
-        customer needs.
-      </p>
-      <section class="card">
-        <h2 id="phase">Ready</h2>
-        <p id="message">Start the demonstration to verify the setup.</p>
-        <button id="start">Start demo Workflow</button>
-        <button id="continue" hidden>Send continue Signal</button>
-        <p class="request-id" id="request-id"></p>
-      </section>
-      <p class="footer">
-        Inspect the execution at
-        <a href="http://localhost:8233" target="_blank">localhost:8233</a>.
-      </p>
-    </main>
-    <script src="/app.js"></script>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Juniper Salon home"
+        ><svg viewBox="0 0 36 44" aria-hidden="true">
+          <path
+            d="M18 40V9M18 26C5 26 3 18 4 12c9 0 14 5 14 14Zm0-8C30 18 33 9 31 3c-9 1-13 6-13 15Zm0 18c11 0 15-7 14-13-8 0-14 5-14 13Z"
+          /></svg
+        ><span
+          >juniper<span class="brand-small">NEIGHBORHOOD SALON</span></span
+        ></a
+      >
+      <div class="header-right">
+        <span class="location">A little care goes a long way.</span
+        ><span class="staff-avatar" title="Staff workspace">JC</span>
+      </div>
+    </header>
+    <div class="shell">
+      <nav class="main-nav" aria-label="Main navigation">
+        <div class="nav-tabs">
+          <button class="nav-tab active" data-view="openings">
+            Openings <span id="nav-count">0</span></button
+          ><button class="nav-tab" data-view="waitlist">Waitlist</button
+          ><button class="nav-tab" data-view="guide">How it works</button>
+        </div>
+        <span class="prototype-label"
+          ><i></i> Local prototype · simulated texts</span
+        >
+      </nav>
+      <div id="connection" class="connection" role="status" hidden></div>
+      <main id="main">
+        <section id="openings-view">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow" id="today">
+                YOUR SALON, A LITTLE MORE IN SYNC
+              </p>
+              <h1>Good things fill the gaps.</h1>
+              <p class="intro">
+                A calmer way to turn today's openings into someone's next
+                appointment.
+              </p>
+            </div>
+            <button class="button primary" data-action="new-opening">
+              <span aria-hidden="true">＋</span> New opening
+            </button>
+          </div>
+          <div class="stats">
+            <div>
+              <span class="stat-label">Offers in progress</span
+              ><strong id="stat-active">0</strong
+              ><span class="stat-note">One client at a time</span>
+            </div>
+            <div>
+              <span class="stat-label">Openings filled today</span
+              ><strong id="stat-filled">0</strong
+              ><span class="stat-note" id="stat-rate"
+                >Every filled chair counts</span
+              >
+            </div>
+            <div>
+              <span class="stat-label">Square updates pending</span
+              ><strong id="stat-square">0</strong
+              ><span class="stat-note">A final step for your calendar</span>
+            </div>
+          </div>
+          <div class="workspace">
+            <section class="openings-column">
+              <div class="section-heading">
+                <h2>
+                  Today's openings
+                  <span id="opening-count" class="count">0</span>
+                </h2>
+                <select id="opening-filter" aria-label="Filter openings">
+                  <option value="all">All statuses</option>
+                  <option value="active">In progress</option>
+                  <option value="filled">Filled</option>
+                  <option value="closed">Closed</option>
+                </select>
+              </div>
+              <div id="opening-list" class="opening-list"></div>
+              <button class="demo-link" data-action="demo">
+                ✧ Add fictional clients for a demo
+              </button>
+            </section>
+            <section
+              id="opening-detail"
+              class="detail-panel"
+              aria-label="Opening details"
+            ></section>
+          </div>
+        </section>
+        <section id="waitlist-view" hidden>
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">THE NEXT GOOD APPOINTMENT STARTS HERE</p>
+              <h1>A place on the list.</h1>
+              <p class="intro">
+                Client preferences, all together. The earliest eligible request
+                gets the first offer.
+              </p>
+            </div>
+            <button class="button primary" data-action="new-client">
+              ＋ Add client
+            </button>
+          </div>
+          <div class="waitlist-toolbar">
+            <label class="search-field"
+              ><span aria-hidden="true">⌕</span
+              ><input
+                id="client-search"
+                type="search"
+                placeholder="Find a client"
+                aria-label="Search waitlist" /></label
+            ><span id="waitlist-count"></span>
+          </div>
+          <div id="waitlist-list" class="waitlist-list"></div>
+        </section>
+        <section id="guide-view" hidden>
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">LESS CHASING. MORE CARING.</p>
+              <h1>From an opening to a welcome.</h1>
+              <p class="intro">
+                Your calendar stays in Square. Juniper takes care of the
+                in-between.
+              </p>
+            </div>
+          </div>
+          <div class="guide-grid">
+            <article>
+              <span class="step">01</span>
+              <h2>Make a little room</h2>
+              <p>
+                Check and reserve the time in Square. Enter today's opening with
+                the service, stylist, and available duration.
+              </p>
+            </article>
+            <article>
+              <span class="step">02</span>
+              <h2>Let the list do its thing</h2>
+              <p>
+                Matching clients are offered the appointment in waitlist order.
+                Each gets up to 15 minutes. A decline or timeout moves things
+                along automatically.
+              </p>
+            </article>
+            <article>
+              <span class="step">03</span>
+              <h2>Welcome them in</h2>
+              <p>
+                When a client accepts, the opening is filled here. Update
+                Square, adjust their previous booking if needed, and mark the
+                calendar update complete.
+              </p>
+            </article>
+          </div>
+          <div class="guide-note">
+            <h2>A few thoughtful details</h2>
+            <p>
+              A client can hold only one offer at a time. Old links cannot take
+              an appointment from someone else. You can withdraw one offer and
+              move on, or cancel the entire opening.
+            </p>
+            <p>
+              Outreach ends at the appointment start time or when no eligible
+              requests remain. Clients who decline or time out stay on the
+              waitlist for other openings.
+            </p>
+            <p>
+              This local prototype uses simulated texts and fictional demo
+              clients. No messages are sent and no changes are made in Square.
+              The 20-second demo option is clearly marked; normal offers last 15
+              minutes. All appointment times are Pacific time.
+            </p>
+          </div>
+        </section>
+      </main>
+      <footer class="site-footer">
+        <span
+          >Juniper Salon <span class="footer-dot">·</span> A little more room
+          for people.</span
+        ><span>All times Pacific</span>
+      </footer>
+    </div>
+    <dialog id="opening-dialog">
+      <form id="opening-form">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">LET'S FILL THAT CHAIR</p>
+            <h2>A new opening</h2>
+          </div>
+          <button
+            type="button"
+            class="icon-button"
+            data-close
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <p class="muted">
+          We'll find the right clients and offer it to one person at a time.
+        </p>
+        <div class="form-grid">
+          <label
+            >Service<select name="service" required>
+              <option>Haircut</option>
+              <option>Color</option>
+              <option>Blowout</option>
+            </select></label
+          ><label
+            >Stylist<select name="stylist" required>
+              <option>Jessica</option>
+              <option>Theo</option>
+              <option>Amara</option>
+            </select></label
+          ><label>Date<input name="date" type="date" required /></label
+          ><label
+            >Start time · Pacific<input
+              name="time"
+              type="time"
+              required /></label
+          ><label class="span-two"
+            >Opening length<select name="durationMinutes">
+              <option value="30">30 minutes</option>
+              <option value="45" selected>45 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="90">90 minutes</option>
+              <option value="120">120 minutes</option>
+              <option value="180">180 minutes</option>
+            </select></label
+          >
+        </div>
+        <label class="check-card"
+          ><input name="reservedInSquare" type="checkbox" required /><span
+            ><strong>I've checked and reserved this time in Square.</strong
+            ><small
+              >Juniper doesn't block or update your Square calendar.</small
+            ></span
+          ></label
+        ><label class="check-simple"
+          ><input name="demo" type="checkbox" /><span
+            >Use 20-second offers for this demo
+            <small>Normal offers last 15 minutes.</small></span
+          ></label
+        >
+        <p class="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" class="button secondary" data-close>
+            Not now</button
+          ><button type="submit" class="button primary">
+            Start offering <span aria-hidden="true">↗</span>
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="client-dialog">
+      <form id="client-form">
+        <div class="dialog-heading">
+          <div>
+            <p class="eyebrow">SOMEONE TO KEEP IN MIND</p>
+            <h2>Add to the waitlist</h2>
+          </div>
+          <button
+            type="button"
+            class="icon-button"
+            data-close
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
+        <div class="form-grid">
+          <label
+            >Client name<input
+              name="name"
+              autocomplete="name"
+              maxlength="80"
+              required
+              placeholder="e.g. Maya Chen" /></label
+          ><label
+            >Mobile number<input
+              name="mobile"
+              type="tel"
+              autocomplete="tel"
+              required
+              placeholder="(415) 555-0123" /></label
+          ><label
+            >Requested service<select name="service">
+              <option>Haircut</option>
+              <option>Color</option>
+              <option>Blowout</option>
+            </select></label
+          ><label
+            >Stylist preference<select name="stylist">
+              <option>Any stylist</option>
+              <option>Jessica</option>
+              <option>Theo</option>
+              <option>Amara</option>
+            </select></label
+          ><label
+            >Service length<select name="durationMinutes">
+              <option value="30">30 minutes</option>
+              <option value="45" selected>45 minutes</option>
+              <option value="60">60 minutes</option>
+              <option value="90">90 minutes</option>
+              <option value="120">120 minutes</option>
+              <option value="180">180 minutes</option>
+            </select></label
+          ><label
+            >Available date<input name="date" type="date" required /></label
+          ><label
+            >Available from · Pacific<input
+              name="from"
+              type="time"
+              value="09:00"
+              required /></label
+          ><label
+            >Available until · Pacific<input
+              name="until"
+              type="time"
+              value="20:00"
+              required /></label
+          ><label class="span-two"
+            >Existing appointment <span class="optional">Optional</span
+            ><input
+              name="existingAppointment"
+              maxlength="200"
+              placeholder="e.g. Friday at 2 pm with Jessica"
+          /></label>
+        </div>
+        <p class="form-hint">
+          The full service must fit in this availability window. Joining the
+          list means the client wants a suitable opening during these times.
+        </p>
+        <p class="form-error" role="alert"></p>
+        <div class="dialog-actions">
+          <button type="button" class="button secondary" data-close>
+            Cancel</button
+          ><button type="submit" class="button primary">Add client</button>
+        </div>
+      </form>
+    </dialog>
+    <dialog id="confirm-dialog">
+      <form method="dialog">
+        <div class="dialog-heading">
+          <h2 id="confirm-title">Please confirm</h2>
+          <button class="icon-button" value="cancel" aria-label="Close">
+            ×
+          </button>
+        </div>
+        <p id="confirm-message" class="muted"></p>
+        <div class="dialog-actions">
+          <button class="button secondary" value="cancel">Keep it</button
+          ><button id="confirm-button" class="button danger" value="confirm">
+            Confirm
+          </button>
+        </div>
+      </form>
+    </dialog>
+    <div id="toast" class="toast" role="status" hidden></div>
+    <script src="/app.js" defer></script>
   </body>
 </html>
-

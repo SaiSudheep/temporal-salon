@@ -28,8 +28,13 @@ async function waitForPort(port, timeoutMs = 60_000) {
 
 await waitForPort(7233);
 const children = [
-  spawn("npm", ["run", "dev:worker"], { stdio: "inherit" }),
-  spawn("npm", ["run", "dev:api"], { stdio: "inherit" }),
+  // Launch Node directly so Windows does not need to spawn the npm.cmd shim.
+  spawn(process.execPath, ["--import", "tsx", "src/worker.ts"], {
+    stdio: "inherit",
+  }),
+  spawn(process.execPath, ["--import", "tsx", "src/api.ts"], {
+    stdio: "inherit",
+  }),
 ];
 let shuttingDown = false;
 function shutdown(exitCode = 0) {
@@ -41,14 +46,17 @@ function shutdown(exitCode = 0) {
 process.on("SIGINT", () => shutdown(0));
 process.on("SIGTERM", () => shutdown(0));
 for (const child of children) {
+  child.once("error", (error) => {
+    console.error("Could not launch a development process:", error);
+    shutdown(1);
+  });
   child.once("exit", (code, signal) => {
     if (!shuttingDown) {
       console.error(`A development process stopped (${signal ?? code}).`);
-      shutdown(code ?? 1);
+      shutdown(code || 1);
     }
   });
 }
 console.log("\nStarter is launching:");
 console.log("  App:         http://localhost:3000");
 console.log("  Temporal UI: http://localhost:8233\n");
-

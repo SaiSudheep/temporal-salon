@@ -1,4 +1,4 @@
-import { NativeConnection, Worker } from "@temporalio/worker";
+﻿import { NativeConnection, Worker } from "@temporalio/worker";
 
 async function run(): Promise<void> {
   const connection = await NativeConnection.connect({
@@ -7,15 +7,17 @@ async function run(): Promise<void> {
   const worker = await Worker.create({
     connection,
     namespace: "default",
-    taskQueue: "assessment-starter",
+    taskQueue: process.env.SALON_TASK_QUEUE ?? "juniper-salon",
     workflowsPath: require.resolve("./workflows"),
   });
-  console.log("Worker is polling the assessment-starter task queue.");
-  await worker.run();
+  console.log("Juniper's waitlist worker is ready.");
+  try {
+    await worker.run();
+  } finally {
+    await connection.close();
+  }
 }
-
 run().catch((error) => {
   console.error(error);
-  process.exit(1);
+  process.exitCode = 1;
 });
-
